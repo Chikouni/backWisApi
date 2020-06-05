@@ -16,6 +16,7 @@
     "@hapi/joi-date": "^2.0.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.0.0",
+    "hapi-auth-keycloak": "^5.1.0",
     "hapi-auto-route": "^3.0.4",
     "mongoose": "^5.9.12",
     "react-native-vector-icons": "^6.6.0"

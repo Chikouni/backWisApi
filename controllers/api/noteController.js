@@ -1,6 +1,15 @@
 const NoteService = require("../../services/api/noteService");
 const Joi = require("@hapi/joi").extend(require("@hapi/joi-date"));
 
+exports.noteAuth = {
+  auth: {
+    strategies: ["keycloak-jwt"],
+    access: {
+      scope: ["realm:USER"],
+    },
+  },
+};
+
 exports.noteOptions = {
   validate: {
     payload: Joi.object({
@@ -14,6 +23,8 @@ exports.noteOptions = {
     },
   },
 };
+
+exports.noteValidationAndAuth = { ...this.noteAuth, ...this.noteOptions };
 
 exports.addNote = async (request, h) => {
   try {
