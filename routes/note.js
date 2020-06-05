@@ -14,13 +14,13 @@ module.exports = [
     method: "GET",
     path: basePath,
     handler: noteController.getNotes,
-    options: noteController.noteAuth
+    options: noteController.noteAuth("realm:USER")
   },  
   {
     method: "GET",
     path: pathWithId,
     handler: noteController.getNote,
-    options: noteController.noteAuth
+    options: noteController.noteAuth.noteAuth("realm:USER")
   },
   {
     method: "PUT",
@@ -32,6 +32,6 @@ module.exports = [
     method: "DELETE",
     path: pathWithId,
     handler: noteController.deleteNote,
-    options: noteController.noteAuth
+    options: noteController.noteAuth.noteAuth("realm:USER")
   },
 ];

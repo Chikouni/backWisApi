@@ -1,14 +1,14 @@
 const NoteService = require("../../services/api/noteService");
 const Joi = require("@hapi/joi").extend(require("@hapi/joi-date"));
 
-exports.noteAuth = {
+export const noteAuth = (role) => ({
   auth: {
     strategies: ["keycloak-jwt"],
     access: {
-      scope: ["realm:USER"],
+      scope: [{ role }],
     },
   },
-};
+});
 
 exports.noteOptions = {
   validate: {
